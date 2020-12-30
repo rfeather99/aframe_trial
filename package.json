@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/rfeather99/aframe_trial/issues"
   },
-  "homepage": "https://github.com/rfeather99/aframe_trial#readme"
+  "homepage": "https://github.com/rfeather99/aframe_trial#readme",
+  "devDependencies": {
+    "typescript": "^4.1.3"
+  }
 }
