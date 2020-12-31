@@ -1,8 +1,5 @@
-const path = require('path');
-const webpack = require('webpack');
-
-
-
+const path = require("path");
+const webpack = require("webpack");
 
 /*
  * SplitChunksPlugin is enabled by default and replaced
@@ -25,45 +22,49 @@ const webpack = require('webpack');
  *
  */
 
-const TerserPlugin = require('terser-webpack-plugin');
-
-
-
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
-  mode: 'development',
-  entry: './src/index.ts',
+  mode: "development",
+  entry: "./src/index.ts",
   plugins: [new webpack.ProgressPlugin()],
 
   module: {
-    rules: [{
-      test: /\.(ts|tsx)$/,
-      loader: 'ts-loader',
-      include: [path.resolve(__dirname, 'src')],
-      exclude: [/node_modules/]
-    }, {
-      test: /.(scss|css)$/,
+    rules: [
+      {
+        test: /\.(ts|tsx)$/,
+        loader: "ts-loader",
+        include: [path.resolve(__dirname, "src")],
+        exclude: [/node_modules/],
+      },
+      {
+        test: /.(scss|css)$/,
 
-      use: [{
-        loader: "style-loader"
-      }, {
-        loader: "css-loader",
+        use: [
+          {
+            loader: "style-loader",
+          },
+          {
+            loader: "css-loader",
 
-        options: {
-          sourceMap: true
-        }
-      }, {
-        loader: "sass-loader",
+            options: {
+              sourceMap: true,
+            },
+          },
+          {
+            loader: "sass-loader",
 
-        options: {
-          sourceMap: true
-        }
-      }]
-    }]
+            options: {
+              sourceMap: true,
+            },
+          },
+        ],
+      },
+    ],
   },
 
   resolve: {
-    extensions: ['.tsx', '.ts', '.js']
+    extensions: [".tsx", ".ts", ".js"],
   },
 
   optimization: {
@@ -73,20 +74,20 @@ module.exports = {
       cacheGroups: {
         vendors: {
           priority: -10,
-          test: /[\\/]node_modules[\\/]/
-        }
+          test: /[\\/]node_modules[\\/]/,
+        },
       },
 
-      chunks: 'async',
+      chunks: "async",
       minChunks: 1,
       minSize: 30000,
-      name: false
-    }
+      name: false,
+    },
   },
 
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
-    host: '0.0.0.0',
-    disableHostCheck: true
-  }
-}
+    contentBase: path.join(__dirname, "dist"),
+    host: "0.0.0.0",
+    disableHostCheck: true,
+  },
+};
