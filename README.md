@@ -13,3 +13,9 @@ yarn build
 ```
 
 to bundle your application
+
+## webpack-dev-serverの起動
+```sh
+> npx webpack serve
+```
+
