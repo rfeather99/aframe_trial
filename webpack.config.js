@@ -82,5 +82,11 @@ module.exports = {
       minSize: 30000,
       name: false
     }
+  },
+
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    host: '0.0.0.0',
+    disableHostCheck: true
   }
 }
